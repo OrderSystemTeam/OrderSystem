@@ -1,5 +1,7 @@
 package cn.com.voyagegroup.ordersystem.activity;
 
+import java.io.UnsupportedEncodingException;
+
 import android.app.Activity;
 import android.content.Context;
 import android.os.AsyncTask;
@@ -34,8 +36,8 @@ public class RegisterGroupActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Group group = new Group();
-                group.setName(SharedPreferencesUtils.getStringSaveData(mContext,
-                        Constants.PREF_FILE_APP_INFO, Constants.PREF_KEY_USER_NAME));
+                group.setId(Integer.parseInt(SharedPreferencesUtils.getStringSaveData(mContext,
+                        Constants.PREF_FILE_APP_INFO, Constants.PREF_KEY_USER_NAME), 0));
                 group.setDate(System.currentTimeMillis());
                 group.setTitle(mNameEditText.getText().toString());
                 group.setTotalNumber(mNumberEditText.getText().toString());
@@ -54,7 +56,11 @@ public class RegisterGroupActivity extends Activity {
 
         @Override
         protected Void doInBackground(Void... params) {
-            mGroupService.addGroup(mGroup);
+            try {
+                mGroupService.addGroup(mGroup);
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
             return null;
         }
     }

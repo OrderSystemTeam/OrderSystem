@@ -3,9 +3,17 @@ package cn.com.voyagegroup.ordersystem.entity;
 public class Group {
     private String title;
     private long date;
-    private String name;
+    private int id;
     private String totalNumber;
     private String number;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getTitle() {
         return title;
@@ -21,14 +29,6 @@ public class Group {
 
     public void setDate(long date) {
         this.date = date;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getTotalNumber() {
