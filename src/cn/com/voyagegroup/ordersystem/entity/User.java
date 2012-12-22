@@ -1,14 +1,14 @@
 package cn.com.voyagegroup.ordersystem.entity;
 
 public class User {
-    private String name;
+    private String userName;
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
 }
