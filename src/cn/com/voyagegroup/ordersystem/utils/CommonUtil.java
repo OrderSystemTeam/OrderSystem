@@ -12,4 +12,5 @@ public class CommonUtil {
     public static String parseToJson(Object object) {
         return gson.toJson(object);
     }
+
 }
