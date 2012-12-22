@@ -1,50 +1,50 @@
 package cn.com.voyagegroup.ordersystem.entity;
 
 public class Group {
-    private String title;
-    private long date;
-    private int id;
-    private String totalNumber;
-    private String number;
+    private String groupName;
+    private long createTime;
+    private int createId;
+    private String limit;
+    private String memberNumber;
 
-    public int getId() {
-        return id;
+    public String getGroupName() {
+        return groupName;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
     }
 
-    public String getTitle() {
-        return title;
+    public long getCreateTime() {
+        return createTime;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setCreateTime(long createTime) {
+        this.createTime = createTime;
     }
 
-    public long getDate() {
-        return date;
+    public int getCreateId() {
+        return createId;
     }
 
-    public void setDate(long date) {
-        this.date = date;
+    public void setCreateId(int createId) {
+        this.createId = createId;
     }
 
-    public String getTotalNumber() {
-        return totalNumber;
+    public String getLimit() {
+        return limit;
     }
 
-    public void setTotalNumber(String totalNumber) {
-        this.totalNumber = totalNumber;
+    public void setLimit(String limit) {
+        this.limit = limit;
     }
 
-    public String getNumber() {
-        return number;
+    public String getMemberNumber() {
+        return memberNumber;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
+    public void setMemberNumber(String memberNumber) {
+        this.memberNumber = memberNumber;
     }
 
 }

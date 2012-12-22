@@ -36,11 +36,10 @@ public class RegisterGroupActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Group group = new Group();
-                group.setId(Integer.parseInt(SharedPreferencesUtils.getStringSaveData(mContext,
-                        Constants.PREF_FILE_APP_INFO, Constants.PREF_KEY_USER_NAME), 0));
-                group.setDate(System.currentTimeMillis());
-                group.setTitle(mNameEditText.getText().toString());
-                group.setTotalNumber(mNumberEditText.getText().toString());
+                group.setCreateId(Integer.parseInt(SharedPreferencesUtils.getStringSaveData(
+                        mContext, Constants.PREF_FILE_APP_INFO, Constants.PREF_KEY_USER_NAME), 0));
+                group.setGroupName(mNameEditText.getText().toString());
+                group.setLimit(mNumberEditText.getText().toString());
                 new AddGroupThead(group).execute();
             }
         });
