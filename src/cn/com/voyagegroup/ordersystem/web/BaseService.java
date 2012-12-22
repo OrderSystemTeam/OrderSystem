@@ -6,13 +6,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Map;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.params.HttpParams;
 
@@ -23,14 +22,13 @@ import cn.com.voyagegroup.ordersystem.utils.Constants;
 public class BaseService {
     private static final String TAG = "BaseService";
 
-    protected String executeUrl(String urlString, Map paramsMap) {
+    protected String executeUrl(String urlString, Object object) {
         URL url;
         InputStream is = null;
         DataInputStream dis;
         StringBuilder sb = new StringBuilder();
-        if (paramsMap != null) {
-            urlString = urlString + "?" + Constants.HTTP_PARAM_KEY
-                    + CommonUtil.mapToJson(paramsMap);
+        if (object != null) {
+            urlString = urlString + "?" + Constants.HTTP_PARAM_KEY + CommonUtil.parseToJson(object);
         }
         try {
             String line;
@@ -56,11 +54,11 @@ public class BaseService {
         return sb.toString();
     }
 
-    protected boolean postData(String url, Map paramsMap) {
-        HttpGet httpGet = new HttpGet(url);
+    protected boolean postData(String url, Object object) {
+        HttpPost httpGet = new HttpPost(url);
         HttpClient httpClient = new DefaultHttpClient();
         HttpParams httpParams = httpClient.getParams();
-        httpParams.setParameter(Constants.HTTP_PARAM_KEY, CommonUtil.mapToJson(paramsMap));
+        httpParams.setParameter(Constants.HTTP_PARAM_KEY, CommonUtil.parseToJson(object));
         try {
             HttpResponse httpResponse = httpClient.execute(httpGet);
             if (httpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
