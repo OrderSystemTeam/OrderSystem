@@ -20,6 +20,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.MenuActivity" >
+        </activity>
+        <activity android:name=".activity.GroupActivity" >
+        </activity>
+        <activity android:name=".activity.OrderActivity" >
+        </activity>
+        <activity android:name=".activity.RegisterGroupActivity" >
+        </activity>
+        <activity android:name=".activity.SettingActivity" >
+        </activity>
     </application>
 
 </manifest>
