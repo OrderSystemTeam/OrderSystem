@@ -7,4 +7,6 @@ public class Constants {
 
     public static final String PREF_FILE_APP_INFO = "app_info";
     public static final String PREF_KEY_USER_ID = "user_id";
+    public static final String PREF_KEY_USER_NAME = "user_name";
+
 }
