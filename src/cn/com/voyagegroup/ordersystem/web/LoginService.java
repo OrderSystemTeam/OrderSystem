@@ -6,7 +6,7 @@ import cn.com.voyagegroup.ordersystem.utils.Constants;
 public class LoginService extends BaseService {
     private static final String TAG = "LoginService";
 
-    public boolean login(User user) {
-        return postData(Constants.LOGIN_URL, user);
+    public String login(User user) {
+        return executeUrl(Constants.LOGIN_URL, user);
     }
 }
