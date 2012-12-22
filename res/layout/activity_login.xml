@@ -22,6 +22,7 @@
         android:layout_below="@+id/name_text"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="54dp"
-        android:text="@android:string/yes" />
+        android:text="@android:string/yes"
+        android:onClick="login" />
 
 </RelativeLayout>
