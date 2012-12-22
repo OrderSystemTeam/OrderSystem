@@ -30,7 +30,7 @@
     </EditText>
 
     <EditText
-        android:id="@+id/EditText01"
+        android:id="@+id/number_text"
         android:layout_width="100dip"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/name_text"

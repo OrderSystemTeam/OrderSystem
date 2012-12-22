@@ -2,7 +2,7 @@ package cn.com.voyagegroup.ordersystem.entity;
 
 public class Group {
     private String title;
-    private String date;
+    private long date;
     private String name;
     private String totalNumber;
     private String number;
@@ -15,11 +15,11 @@ public class Group {
         this.title = title;
     }
 
-    public String getDate() {
+    public long getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(long date) {
         this.date = date;
     }
 
