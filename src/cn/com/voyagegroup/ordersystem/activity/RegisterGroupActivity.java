@@ -4,8 +4,10 @@ import java.io.UnsupportedEncodingException;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -36,8 +38,10 @@ public class RegisterGroupActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Group group = new Group();
-                group.setCreateId(Integer.parseInt(SharedPreferencesUtils.getStringSaveData(
-                        mContext, Constants.PREF_FILE_APP_INFO, Constants.PREF_KEY_USER_NAME), 0));
+                String userId = SharedPreferencesUtils.getStringSaveData(mContext,
+                        Constants.PREF_FILE_APP_INFO, Constants.PREF_KEY_USER_ID);
+                Log.d("", userId);
+                group.setCreateId(Integer.parseInt(userId));
                 group.setGroupName(mNameEditText.getText().toString());
                 group.setLimit(mNumberEditText.getText().toString());
                 new AddGroupThead(group).execute();
@@ -61,6 +65,14 @@ public class RegisterGroupActivity extends Activity {
                 e.printStackTrace();
             }
             return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            super.onPostExecute(result);
+            Intent intent = new Intent(RegisterGroupActivity.this, MenuActivity.class);
+            startActivity(intent);
+            finish();
         }
     }
 }
